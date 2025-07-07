@@ -1,0 +1,79 @@
+Running with dbt=1.10.3
+Registered adapter: snowflake=1.9.0
+Found 8 models, 2 snapshots, 1 analysis, 22 data tests, 1 seed, 3 sources, 1 exposure, 869 macros
+
+Concurrency: 1 threads (target='dev')
+
+1 of 31 START seed file RAW.seed_full_moon_dates ............................... [RUN]
+1 of 31 OK loaded seed file RAW.seed_full_moon_dates ........................... [[32mINSERT 272[0m in 2.66s]
+2 of 31 START snapshot DEV.scd_raw_hosts ....................................... [RUN]
+2 of 31 OK snapshotted DEV.scd_raw_hosts ....................................... [[32mSUCCESS 0[0m in 4.36s]
+3 of 31 START test dbt_expectations_source_expect_column_distinct_count_to_equal_airbnb_listings_room_type__4  [RUN]
+3 of 31 PASS dbt_expectations_source_expect_column_distinct_count_to_equal_airbnb_listings_room_type__4  [[32mPASS[0m in 0.29s]
+4 of 31 START test dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_  [RUN]
+4 of 31 PASS dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_  [[32mPASS[0m in 0.26s]
+5 of 31 START sql view model RAW.dim_hosts_cleansed ............................ [RUN]
+5 of 31 OK created sql view model RAW.dim_hosts_cleansed ....................... [[32mSUCCESS 1[0m in 0.58s]
+6 of 31 START sql incremental model RAW.fct_reviews ............................ [RUN]
+Loading AIRBNB.RAW.fct_reviews incrementally (all missing dates)
+6 of 31 OK created sql incremental model RAW.fct_reviews ....................... [[32mSUCCESS 0[0m in 2.81s]
+7 of 31 START snapshot DEV.scd_raw_listings .................................... [RUN]
+7 of 31 OK snapshotted DEV.scd_raw_listings .................................... [[32mSUCCESS 0[0m in 3.46s]
+8 of 31 START test accepted_values_dim_hosts_cleansed_is_superhost__t__f ....... [RUN]
+8 of 31 PASS accepted_values_dim_hosts_cleansed_is_superhost__t__f ............. [[32mPASS[0m in 0.31s]
+9 of 31 START test not_null_dim_hosts_cleansed_host_id ......................... [RUN]
+9 of 31 PASS not_null_dim_hosts_cleansed_host_id ............................... [[32mPASS[0m in 0.32s]
+10 of 31 START test not_null_dim_hosts_cleansed_host_name ...................... [RUN]
+10 of 31 PASS not_null_dim_hosts_cleansed_host_name ............................ [[32mPASS[0m in 0.56s]
+11 of 31 START test unique_dim_hosts_cleansed_host_id .......................... [RUN]
+11 of 31 PASS unique_dim_hosts_cleansed_host_id ................................ [[32mPASS[0m in 0.28s]
+12 of 31 START test accepted_values_fct_reviews_review_sentiment__positive__neutral__negative  [RUN]
+12 of 31 PASS accepted_values_fct_reviews_review_sentiment__positive__neutral__negative  [[32mPASS[0m in 0.21s]
+13 of 31 START test not_null_fct_reviews_reviewer_name ......................... [RUN]
+13 of 31 PASS not_null_fct_reviews_reviewer_name ............................... [[32mPASS[0m in 0.23s]
+14 of 31 START sql view model RAW.dim_listings_cleansed ........................ [RUN]
+14 of 31 OK created sql view model RAW.dim_listings_cleansed ................... [[32mSUCCESS 1[0m in 0.55s]
+15 of 31 START sql table model RAW.mart_fullmoon_reviews ....................... [RUN]
+15 of 31 OK created sql table model RAW.mart_fullmoon_reviews .................. [[32mSUCCESS 1[0m in 2.48s]
+16 of 31 START test accepted_values_dim_listings_cleansed_room_type__Entire_home_apt__Private_room__Shared_room__Hotel_room  [RUN]
+16 of 31 PASS accepted_values_dim_listings_cleansed_room_type__Entire_home_apt__Private_room__Shared_room__Hotel_room  [[32mPASS[0m in 0.33s]
+17 of 31 START test consistent_created_at ...................................... [RUN]
+17 of 31 PASS consistent_created_at ............................................ [[32mPASS[0m in 0.40s]
+18 of 31 START test dim_listings_minimum_nights ................................ [RUN]
+18 of 31 PASS dim_listings_minimum_nights ...................................... [[32mPASS[0m in 0.28s]
+19 of 31 START test no_nulls_in_dim_listings ................................... [RUN]
+19 of 31 PASS no_nulls_in_dim_listings ......................................... [[32mPASS[0m in 0.47s]
+20 of 31 START test not_null_dim_listings_cleansed_host_id ..................... [RUN]
+20 of 31 PASS not_null_dim_listings_cleansed_host_id ........................... [[32mPASS[0m in 0.26s]
+21 of 31 START test not_null_dim_listings_cleansed_listing_id .................. [RUN]
+21 of 31 PASS not_null_dim_listings_cleansed_listing_id ........................ [[32mPASS[0m in 0.43s]
+22 of 31 START test positive_value_dim_listings_cleansed_minimum_nights ........ [RUN]
+22 of 31 PASS positive_value_dim_listings_cleansed_minimum_nights .............. [[32mPASS[0m in 0.26s]
+23 of 31 START test relationships_dim_listings_cleansed_host_id__host_id__ref_dim_hosts_cleansed_  [RUN]
+23 of 31 PASS relationships_dim_listings_cleansed_host_id__host_id__ref_dim_hosts_cleansed_  [[32mPASS[0m in 0.32s]
+24 of 31 START test relationships_fct_reviews_listing_id__listing_id__ref_dim_listings_cleansed_  [RUN]
+24 of 31 PASS relationships_fct_reviews_listing_id__listing_id__ref_dim_listings_cleansed_  [[32mPASS[0m in 0.32s]
+25 of 31 START test unique_dim_listings_cleansed_listing_id .................... [RUN]
+25 of 31 PASS unique_dim_listings_cleansed_listing_id .......................... [[32mPASS[0m in 0.26s]
+26 of 31 START sql table model RAW.dim_listings_w_hosts ........................ [RUN]
+26 of 31 OK created sql table model RAW.dim_listings_w_hosts ................... [[32mSUCCESS 1[0m in 1.05s]
+27 of 31 NO-OP exposure executive_dashboard .................................... [[33mNO-OP[0m in 0.00s]
+28 of 31 START test dbt_expectations_expect_column_max_to_be_between_dim_listings_w_hosts_price__5000  [RUN]
+28 of 31 WARN 1 dbt_expectations_expect_column_max_to_be_between_dim_listings_w_hosts_price__5000  [[33mWARN 1[0m in 0.33s]
+29 of 31 START test dbt_expectations_expect_column_quantile_values_to_be_between_dim_listings_w_hosts_price__500__50__0_99  [RUN]
+29 of 31 PASS dbt_expectations_expect_column_quantile_values_to_be_between_dim_listings_w_hosts_price__500__50__0_99  [[32mPASS[0m in 0.32s]
+30 of 31 START test dbt_expectations_expect_column_values_to_be_of_type_dim_listings_w_hosts_price__number  [RUN]
+30 of 31 PASS dbt_expectations_expect_column_values_to_be_of_type_dim_listings_w_hosts_price__number  [[32mPASS[0m in 0.45s]
+31 of 31 START test dbt_expectations_expect_table_row_count_to_equal_other_table_dim_listings_w_hosts_source_airbnb_listings_  [RUN]
+31 of 31 PASS dbt_expectations_expect_table_row_count_to_equal_other_table_dim_listings_w_hosts_source_airbnb_listings_  [[32mPASS[0m in 0.27s]
+
+Finished running 1 exposure, 1 incremental model, 1 seed, 2 snapshots, 2 table models, 22 data tests, 2 view models in 0 hours 0 minutes and 28.00 seconds (28.00s).
+
+[33mCompleted with 1 warning:[0m
+
+[33mWarning in test dbt_expectations_expect_column_max_to_be_between_dim_listings_w_hosts_price__5000 (models/schema.yml)[0m
+Got 1 result, configured to warn if != 0
+
+  compiled code at target/dbtlearn_dbt_assets-40ad785-3982d88/compiled/dbtlearn/models/schema.yml/dbt_expectations_expect_column_c59e300e0dddb335c4211147100ac1c6.sql
+
+Done. PASS=29 WARN=1 ERROR=0 SKIP=0 NO-OP=1 TOTAL=31

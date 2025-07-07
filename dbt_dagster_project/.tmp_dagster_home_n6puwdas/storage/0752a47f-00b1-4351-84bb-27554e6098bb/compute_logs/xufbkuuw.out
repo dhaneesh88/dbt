@@ -1,0 +1,24 @@
+Running with dbt=1.10.3
+Registered adapter: snowflake=1.9.0
+Found 8 models, 2 snapshots, 1 analysis, 22 data tests, 1 seed, 3 sources, 1 exposure, 869 macros
+
+Concurrency: 1 threads (target='dev')
+
+1 of 6 START sql view model RAW.dim_hosts_cleansed ............................. [RUN]
+1 of 6 OK created sql view model RAW.dim_hosts_cleansed ........................ [[32mSUCCESS 1[0m in 0.69s]
+2 of 6 START test accepted_values_dim_hosts_cleansed_is_superhost__t__f ........ [RUN]
+2 of 6 PASS accepted_values_dim_hosts_cleansed_is_superhost__t__f .............. [[32mPASS[0m in 0.34s]
+3 of 6 START test not_null_dim_hosts_cleansed_host_id .......................... [RUN]
+3 of 6 PASS not_null_dim_hosts_cleansed_host_id ................................ [[32mPASS[0m in 0.30s]
+4 of 6 START test not_null_dim_hosts_cleansed_host_name ........................ [RUN]
+4 of 6 PASS not_null_dim_hosts_cleansed_host_name .............................. [[32mPASS[0m in 0.40s]
+5 of 6 START test relationships_dim_listings_cleansed_host_id__host_id__ref_dim_hosts_cleansed_  [RUN]
+5 of 6 PASS relationships_dim_listings_cleansed_host_id__host_id__ref_dim_hosts_cleansed_  [[32mPASS[0m in 0.31s]
+6 of 6 START test unique_dim_hosts_cleansed_host_id ............................ [RUN]
+6 of 6 PASS unique_dim_hosts_cleansed_host_id .................................. [[32mPASS[0m in 0.28s]
+
+Finished running 5 data tests, 1 view model in 0 hours 0 minutes and 4.18 seconds (4.18s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=6 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=6

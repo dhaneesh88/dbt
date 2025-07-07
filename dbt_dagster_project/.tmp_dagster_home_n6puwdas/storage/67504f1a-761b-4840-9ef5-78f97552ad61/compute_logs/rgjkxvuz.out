@@ -1,0 +1,34 @@
+Running with dbt=1.10.3
+Registered adapter: snowflake=1.9.0
+Found 8 models, 2 snapshots, 1 analysis, 22 data tests, 1 seed, 3 sources, 1 exposure, 869 macros
+
+Concurrency: 1 threads (target='dev')
+
+1 of 11 START sql view model RAW.dim_listings_cleansed ......................... [RUN]
+1 of 11 OK created sql view model RAW.dim_listings_cleansed .................... [[32mSUCCESS 1[0m in 0.70s]
+2 of 11 START test accepted_values_dim_listings_cleansed_room_type__Entire_home_apt__Private_room__Shared_room__Hotel_room  [RUN]
+2 of 11 PASS accepted_values_dim_listings_cleansed_room_type__Entire_home_apt__Private_room__Shared_room__Hotel_room  [[32mPASS[0m in 0.38s]
+3 of 11 START test consistent_created_at ....................................... [RUN]
+3 of 11 PASS consistent_created_at ............................................. [[32mPASS[0m in 0.41s]
+4 of 11 START test dim_listings_minimum_nights ................................. [RUN]
+4 of 11 PASS dim_listings_minimum_nights ....................................... [[32mPASS[0m in 0.45s]
+5 of 11 START test no_nulls_in_dim_listings .................................... [RUN]
+5 of 11 PASS no_nulls_in_dim_listings .......................................... [[32mPASS[0m in 1.09s]
+6 of 11 START test not_null_dim_listings_cleansed_host_id ...................... [RUN]
+6 of 11 PASS not_null_dim_listings_cleansed_host_id ............................ [[32mPASS[0m in 0.29s]
+7 of 11 START test not_null_dim_listings_cleansed_listing_id ................... [RUN]
+7 of 11 PASS not_null_dim_listings_cleansed_listing_id ......................... [[32mPASS[0m in 0.29s]
+8 of 11 START test positive_value_dim_listings_cleansed_minimum_nights ......... [RUN]
+8 of 11 PASS positive_value_dim_listings_cleansed_minimum_nights ............... [[32mPASS[0m in 0.28s]
+9 of 11 START test relationships_dim_listings_cleansed_host_id__host_id__ref_dim_hosts_cleansed_  [RUN]
+9 of 11 PASS relationships_dim_listings_cleansed_host_id__host_id__ref_dim_hosts_cleansed_  [[32mPASS[0m in 0.35s]
+10 of 11 START test relationships_fct_reviews_listing_id__listing_id__ref_dim_listings_cleansed_  [RUN]
+10 of 11 PASS relationships_fct_reviews_listing_id__listing_id__ref_dim_listings_cleansed_  [[32mPASS[0m in 0.38s]
+11 of 11 START test unique_dim_listings_cleansed_listing_id .................... [RUN]
+11 of 11 PASS unique_dim_listings_cleansed_listing_id .......................... [[32mPASS[0m in 0.34s]
+
+Finished running 10 data tests, 1 view model in 0 hours 0 minutes and 7.12 seconds (7.12s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=11 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=11
